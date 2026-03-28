@@ -1,0 +1,46 @@
+Balanced split completed:
+   Training set: 343 samples
+   Validation set: 80 samples
+   Validation set label distribution:
+     Label 0: 16 samples (20.0%)
+     Label 1: 16 samples (20.0%)
+     Label 2: 16 samples (20.0%)
+     Label 3: 16 samples (20.0%)
+     Label 4: 16 samples (20.0%)
+Data augmentation enabled: training samples extended from 343 to 1715
+Train:   0%|          | 0/428 [00:00<?, ?it/s]                                              Traceback (most recent call last):
+  File "/home/zcl/addfuse1/training/train_tir_ms_multimodal.py", line 57, in <module>
+    train_loss, train_acc = train_one_epoch(model, train_loader, criterion, optimizer, device)
+  File "/home/zcl/addfuse1/training/train_tir_ms_multimodal.py", line 13, in train_one_epoch
+    outputs = model(torch.zeros_like(tir).to(device), tir, ms)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/models/net_drought.py", line 432, in forward
+    base1, _, _ = self.encoder_rgb(rgb)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/models/net_drought.py", line 343, in forward
+    out_enc = self.encoder_blocks(inp_enc)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+    input = module(input)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/models/net_drought.py", line 160, in forward
+    x = x + self.attn(self.norm1(x))
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/models/net_drought.py", line 140, in forward
+    out = attn @ v
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 38.00 MiB. GPU 0 has a total capacity of 23.55 GiB of which 33.38 MiB is free. Including non-PyTorch memory, this process has 782.00 MiB memory in use. Process 108727 has 6.54 GiB memory in use. Process 108723 has 4.06 GiB memory in use. Process 108730 has 4.04 GiB memory in use. Process 108724 has 4.04 GiB memory in use. Process 108725 has 4.04 GiB memory in use. Of the allocated memory 462.58 MiB is allocated by PyTorch, and 1.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

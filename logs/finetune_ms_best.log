@@ -1,0 +1,65 @@
+================================================================================
+🚀 MS单模态 - Fine-tune 57.5%最佳模型
+================================================================================
+
+📊 加载数据...
+✅ 数据加载完成
+
+🧠 创建模型...
+
+📥 加载预训练模型: ./models_ms_opt_v1_new/drought_best.pth
+⚠️  权重加载有差异，继续训练: Error(s) in loading state_dict for MSClassifier:
+	size mismatch for classifier.0.weight: copying a param with shape torch.Size([128, 48]) from checkpoint, the shape in current model is torch.Size([256, 192]).
+	size mismatch for classifier.0.bias: copying a param with shape torch.Size([128]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for classifier.3.weight: copying a param with shape torch.Size([5, 128]) from checkpoint, the shape in current model is torch.Size([5, 256]).
+✅ 总参数: 1,387,061
+
+❄️  冻结编码器，只微调分类头...
+✅ 可训练参数: 50,693
+
+⚖️  计算类别权重...
+
+================================================================================
+🚀 开始微调...
+================================================================================
+
+  0%|          | 0/84 [00:00<?, ?it/s]                                      Traceback (most recent call last):
+  File "/home/zcl/addfuse1/training/finetune_ms_best.py", line 297, in <module>
+    main()
+  File "/home/zcl/addfuse1/training/finetune_ms_best.py", line 257, in main
+    train_loss, train_acc = train_one_epoch(
+  File "/home/zcl/addfuse1/training/finetune_ms_best.py", line 114, in train_one_epoch
+    logits = model(ms)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/training/finetune_ms_best.py", line 86, in forward
+    x = self.encoder(x)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/training/finetune_ms_best.py", line 63, in forward
+    x = self.encoder_level2(x)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+    input = module(input)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+    input = module(input)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 548, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 543, in _conv_forward
+    return F.conv2d(
+RuntimeError: Given groups=1, weight of size [96, 48, 3, 3], expected input[4, 96, 112, 112] to have 48 channels, but got 96 channels instead

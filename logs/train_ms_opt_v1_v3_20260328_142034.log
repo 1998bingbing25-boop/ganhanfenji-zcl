@@ -1,0 +1,69 @@
+nohup: ignoring input
+================================================================================
+🚀 MS单模态优化 V3 - 修复验证集 + 强化Focal Loss
+================================================================================
+
+📊 加载数据 (train/val = 80/20)...
+✅ 数据加载完成
+
+🧠 创建模型...
+✅ 总参数: 343,905
+
+⚖️  计算类别权重...
+类别权重: ['1.798', '0.473', '0.674', '0.771', '1.284']
+
+================================================================================
+🚀 开始训练...
+超参数:
+  LR: 0.0001
+  Gamma: 2.2
+  Label Smoothing: 0.12
+  Train/Val: 80/20
+================================================================================
+
+Epoch 1 Train:   0%|          | 0/84 [00:00<?, ?it/s]                                                     Traceback (most recent call last):
+  File "/home/zcl/addfuse1/training/train_ms_opt_v1_v3.py", line 260, in <module>
+    main()
+  File "/home/zcl/addfuse1/training/train_ms_opt_v1_v3.py", line 219, in main
+    train_loss, train_acc = train_one_epoch(
+  File "/home/zcl/addfuse1/training/train_ms_opt_v1_v3.py", line 59, in train_one_epoch
+    outputs = model(ms)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/training/train_ms_opt_v1_v3.py", line 168, in forward
+    x = self.encoder(x)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/models/net_drought_rgb.py", line 187, in forward
+    x = encoder_block(x)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/container.py", line 244, in forward
+    input = module(input)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/models/net_drought_rgb.py", line 146, in forward
+    x = x + self.attn(self.norm1(x))
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/addfuse1/models/net_drought_rgb.py", line 85, in forward
+    qkv = self.qkv_dwconv(self.qkv(x))
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 548, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/zcl/anaconda3/envs/cmx/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 543, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 0 has a total capacity of 23.55 GiB of which 62.69 MiB is free. Process 975248 has 13.21 GiB memory in use. Including non-PyTorch memory, this process has 10.26 GiB memory in use. Of the allocated memory 9.77 GiB is allocated by PyTorch, and 185.44 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
