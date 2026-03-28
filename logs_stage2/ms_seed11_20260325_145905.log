@@ -1,0 +1,17 @@
+[RUN] tag=ms_seed11
+[RUN] src=./backups/stage2_20260325_145905/training/train_ms_single.py
+[RUN] script=[PATCH] src=backups/stage2_20260325_145905/training/train_ms_single.py
+[PATCH] dst=stage2_generated/train_ms_single_ms_seed11_stage2.py
+[PATCH] tag=ms_seed11
+[PATCH] changes=label_smoothing:1, optimizer_wd:1
+stage2_generated/train_ms_single_ms_seed11_stage2.py
+[RUN] cmd=python [PATCH] src=backups/stage2_20260325_145905/training/train_ms_single.py
+[PATCH] dst=stage2_generated/train_ms_single_ms_seed11_stage2.py
+[PATCH] tag=ms_seed11
+[PATCH] changes=label_smoothing:1, optimizer_wd:1
+stage2_generated/train_ms_single_ms_seed11_stage2.py
+python: can't open file '/home/zcl/addfuse1/[PATCH] src=backups/stage2_20260325_145905/training/train_ms_single.py
+[PATCH] dst=stage2_generated/train_ms_single_ms_seed11_stage2.py
+[PATCH] tag=ms_seed11
+[PATCH] changes=label_smoothing:1, optimizer_wd:1
+stage2_generated/train_ms_single_ms_seed11_stage2.py': [Errno 2] No such file or directory
