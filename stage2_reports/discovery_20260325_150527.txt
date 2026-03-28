@@ -1,0 +1,5 @@
+timestamp: 20260325_150527
+RUN_ONLY: ms
+MS_SRC: ./training/train_ms_single.py
+TIR_MS_SRC: ./training/train_tir_ms_multimodal.py
+RGB_TIR_MS_SRC: NOT_FOUND

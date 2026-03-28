@@ -1,0 +1,18 @@
+nohup: ignoring input
+timestamp: 20260325_150527
+RUN_ONLY: ms
+MS_SRC: ./training/train_ms_single.py
+TIR_MS_SRC: ./training/train_tir_ms_multimodal.py
+RGB_TIR_MS_SRC: NOT_FOUND
+[PATCH] src=training/train_ms_single.py
+[PATCH] dst=stage2_generated/train_ms_single_ms_seed11_stage2.py
+[PATCH] tag=ms_seed11
+[PATCH] changes=label_smoothing:1, optimizer_wd:1
+[RUN] tag=ms_seed11
+[RUN] src=./training/train_ms_single.py
+[RUN] script=stage2_generated/train_ms_single_ms_seed11_stage2.py
+[RUN] cmd=python stage2_generated/train_ms_single_ms_seed11_stage2.py
+  File "/home/zcl/addfuse1/stage2_generated/train_ms_single_ms_seed11_stage2.py", line 87
+    optimizer = optim.Adam(model.parameters(, weight_decay=1e-4), lr=args.lr)
+                                            ^
+SyntaxError: invalid syntax

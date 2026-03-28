@@ -1,0 +1,4 @@
+[PATCH] src=training/train_ms_single.py
+[PATCH] dst=stage2_generated/train_ms_single_ms_seed11_stage2.py
+[PATCH] tag=ms_seed11
+[PATCH] changes=label_smoothing:1, optimizer_wd:1

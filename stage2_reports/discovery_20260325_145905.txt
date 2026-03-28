@@ -1,0 +1,5 @@
+timestamp: 20260325_145905
+RUN_ONLY: all
+MS_SRC: ./backups/stage2_20260325_145905/training/train_ms_single.py
+TIR_MS_SRC: ./backups/stage2_20260325_145905/training/train_tir_ms_multimodal.py
+RGB_TIR_MS_SRC: NOT_FOUND
